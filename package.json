@@ -60,6 +60,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean": "rm -rf ./dist",
+    "clean1": "rm -rf ./dist",
     "prepareBuild": "npm run clean && mkdir dist",
     "compile": "set NODE_ENV=production & babel src/libs --out-dir dist --extensions \".ts,.tsx\" --copy-files",
     "copy": "cpx \"{package.json,README.md}\" dist",
