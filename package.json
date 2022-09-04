@@ -1,5 +1,5 @@
 {
-  "name": "fluentui-editable-grid",
+  "name": "@piplcom/fluentui-editable-grid",
   "version": "1.11.2",
   "license": "MIT",
   "description": "Wrapper over the existing DetailsList that makes in-place editability work like a dream(among many other new features)",
@@ -7,7 +7,7 @@
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/FluentUIEditableDetailsList"
+    "url": "https://github.com/piplcom/FluentUIEditableDetailsList"
   },
   "keywords": [
     "editable",
@@ -59,12 +59,13 @@
     "build-site": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "if exist dist rd /s /q dist",
+    "clean": "rm -rf ./dist",
     "prepareBuild": "npm run clean && mkdir dist",
     "compile": "set NODE_ENV=production & babel src/libs --out-dir dist --extensions \".ts,.tsx\" --copy-files",
     "copy": "cpx \"{package.json,README.md}\" dist",
     "build": "npm run prepareBuild && npm run compile && tsc && npm run copy",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "publish:prod": "npm run build && npm run publish"
   },
   "babel": {
     "presets": [
