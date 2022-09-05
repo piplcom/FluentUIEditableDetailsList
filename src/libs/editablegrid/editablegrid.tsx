@@ -2604,7 +2604,7 @@ const EditableGrid = (props: Props) => {
           rowNum
         )}
       >
-        {item[column.key].toString()}
+        {item[column.key]?.toString()}
       </span>
     );
   };
