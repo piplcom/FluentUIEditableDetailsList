@@ -2030,14 +2030,17 @@ const EditableGrid = (props: Props) => {
     }
 
     if (props.enableRowEdit) {
-      columnConfigs.push({
+      const func = props.actionsOnLeft
+        ? columnConfigs.unshift
+        : columnConfigs.push;
+      func.call(columnConfigs, {
         key: "action",
         name: "Actions",
         ariaLabel: "Actions",
         fieldName: "action",
         isResizable: true,
-        minWidth: 50,
-        maxWidth: 50,
+        minWidth: 100,
+        maxWidth: 100,
         onRender: (item, index) => (
           <div>
             {activateCellEdit &&
@@ -2064,7 +2067,12 @@ const EditableGrid = (props: Props) => {
                 ) : null}
               </div>
             ) : (
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: "4px"
+                }}
+              >
                 {!props.enableDefaultEditMode && (
                   <IconButton
                     onClick={() =>
@@ -2088,6 +2096,18 @@ const EditableGrid = (props: Props) => {
                       title={"Copy"}
                     ></IconButton>
                   )}
+
+                {props.actionsOnLeft && (
+                  <div
+                    style={{
+                      backgroundColor: "#999",
+                      height: 40,
+                      width: 1,
+                      marginRight: 16,
+                      marginLeft: 16
+                    }}
+                  />
+                )}
               </div>
             )}
           </div>
@@ -2721,7 +2741,10 @@ const EditableGrid = (props: Props) => {
         })}
       >
         <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
-          <MarqueeSelection selection={_selection}>
+          <MarqueeSelection
+            selection={_selection}
+            isEnabled={props.isMarqueeEnabled || false}
+          >
             <DetailsList
               compact={true}
               items={
@@ -2737,8 +2760,6 @@ const EditableGrid = (props: Props) => {
               }
               columns={GridColumns}
               selectionMode={props.selectionMode}
-              // layoutMode={props.layoutMode}
-              // constrainMode={props.constrainMode}
               layoutMode={DetailsListLayoutMode.fixedColumns}
               constrainMode={ConstrainMode.unconstrained}
               selection={_selection}
