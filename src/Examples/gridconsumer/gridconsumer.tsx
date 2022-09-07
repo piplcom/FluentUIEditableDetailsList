@@ -489,6 +489,9 @@ const Consumer = () => {
         </Link>
       </div>
       <EditableGrid
+        isMarqueeEnabled={false}
+        actionsOnLeft={true}
+        updateCellOnBlur={true}
         id={1}
         enableColumnEdit={gridConfigOptions.enableColumnEdit}
         enableSave={gridConfigOptions.enableSave}
