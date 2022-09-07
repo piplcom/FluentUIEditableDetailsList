@@ -780,6 +780,24 @@ const EditableGrid = (props: Props) => {
     }
   };
 
+  const onBlurEvent = (
+    event: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLDivElement | HTMLElement
+    >,
+    column: IColumnConfig,
+    rowNum: number,
+    activateCurrentCell: boolean
+  ): void => {
+    if (!props.updateCellOnBlur) {
+      return;
+    }
+
+    if (!activateCellEdit[rowNum].isActivated) {
+      EditCellValue(column.key, rowNum, activateCurrentCell);
+      event.preventDefault();
+    }
+  };
+
   const onCellDateChange = (
     date: Date | null | undefined,
     item1: {},
@@ -1661,6 +1679,9 @@ const EditableGrid = (props: Props) => {
                               ? onDoubleClickEvent(column.key, rowNum!, false)
                               : null
                           }
+                          onBlur={(event) =>
+                            onBlurEvent(event, column, rowNum!, false)
+                          }
                           maxLength={
                             column.maxLength != null ? column.maxLength : 10000
                           }
@@ -1720,6 +1741,9 @@ const EditableGrid = (props: Props) => {
                             !activateCellEdit[rowNum!].isActivated
                               ? onDoubleClickEvent(column.key, rowNum!, false)
                               : null
+                          }
+                          onBlur={(event) =>
+                            onBlurEvent(event, column, rowNum!, false)
                           }
                         />
                       )}
@@ -1785,6 +1809,9 @@ const EditableGrid = (props: Props) => {
                                 )
                               : null
                           }
+                          onBlur={(event) =>
+                            onBlurEvent(event, column, rowNum!, false)
+                          }
                         />
                       ) : (
                         <Dropdown
@@ -1807,6 +1834,9 @@ const EditableGrid = (props: Props) => {
                                   false
                                 )
                               : null
+                          }
+                          onBlur={(event) =>
+                            onBlurEvent(event, column, rowNum!, false)
                           }
                         />
                       )}
@@ -1987,6 +2017,9 @@ const EditableGrid = (props: Props) => {
                           }
                           onKeyDown={(event) =>
                             onKeyDownEvent(event, column, rowNum!, false)
+                          }
+                          onBlur={(event) =>
+                            onBlurEvent(event, column, rowNum!, false)
                           }
                           maxLength={
                             column.maxLength != null ? column.maxLength : 1000

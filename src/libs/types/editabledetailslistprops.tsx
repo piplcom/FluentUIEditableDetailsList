@@ -42,4 +42,5 @@ export interface Props extends IDetailsListProps {
   enableDefaultEditMode?: boolean;
   isMarqueeEnabled?: boolean;
   actionsOnLeft?: boolean;
+  updateCellOnBlur?: boolean;
 }
