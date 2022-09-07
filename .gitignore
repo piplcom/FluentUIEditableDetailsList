@@ -24,3 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 src/libs/editablegrid/editablegrid.tsx
+.env
