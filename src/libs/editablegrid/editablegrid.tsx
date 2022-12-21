@@ -1478,7 +1478,7 @@ const EditableGrid = (props: Props) => {
               x._is_filtered_in_column_filter_ == true &&
               x._is_filtered_in_grid_search_ == true
           )
-          .map((item) => item[column.fieldName!])
+          .map((item) => item[column.fieldName!]?.toString())
       )
     ];
     var hiddenUniqueVals: string[] = [
@@ -1490,7 +1490,7 @@ const EditableGrid = (props: Props) => {
               (x._is_filtered_in_column_filter_ == false ||
                 x._is_filtered_in_grid_search_ == false)
           )
-          .map((item) => item[column.fieldName!])
+          .map((item) => item[column.fieldName!]?.toString())
       )
     ];
 

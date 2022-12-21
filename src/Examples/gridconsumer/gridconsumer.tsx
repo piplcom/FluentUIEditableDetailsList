@@ -187,13 +187,18 @@ const Consumer = () => {
 
   const SetDummyData = (): void => {
     var dummyData: GridItemsType[] = [];
-    for (var i = 1; i <= 100; i++) {
+    for (var i = 1; i <= 10; i++) {
       var randomInt = GetRandomInt(1, 3);
       dummyData.push({
         id: i,
         customerhovercol: "Hover Me",
         name: "Name" + GetRandomInt(1, 10),
-        fields: ["email", "phone"],
+        fields:
+          randomInt % 3 == 0
+            ? ["email"]
+            : randomInt % 3 == 1
+            ? ["phone"]
+            : ["email", "phone"],
         age: GetRandomInt(20, 40),
         designation: "Designation" + GetRandomInt(1, 15),
         salary: GetRandomInt(35000, 75000),
