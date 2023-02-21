@@ -1,6 +1,6 @@
 {
   "name": "@piplcom/fluentui-editable-grid",
-  "version": "1.11.12",
+  "version": "1.11.13",
   "license": "MIT",
   "description": "Wrapper over the existing DetailsList that makes in-place editability work like a dream(among many other new features)",
   "main": "dist/index.js",
@@ -23,8 +23,8 @@
     "@babel/preset-env": "^7.14.9",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-stage-0": "^7.8.3",
-    "@fluentui/react": "^8.26.0",
-    "@fluentui/react-hooks": "^8.3.4",
+    "@fluentui/react": "^8.105.11",
+    "@fluentui/react-hooks": "^8.6.17",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
