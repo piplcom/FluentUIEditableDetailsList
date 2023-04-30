@@ -1,6 +1,6 @@
 {
   "name": "@piplcom/fluentui-editable-grid",
-  "version": "1.11.18",
+  "version": "1.11.19",
   "license": "MIT",
   "description": "Wrapper over the existing DetailsList that makes in-place editability work like a dream(among many other new features)",
   "main": "dist/index.js",
@@ -17,6 +17,8 @@
   ],
   "bugs": "https://github.com/microsoft/FluentUIEditableDetailsList/issues",
   "dependencies": {
+    "nth-check": "2.1.1",
+    "unset-value": "2.0.1",
     "@babel/cli": "7.12.1",
     "@babel/core": "^7.14.8",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
