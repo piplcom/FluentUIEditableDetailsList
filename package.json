@@ -1,6 +1,6 @@
 {
   "name": "@piplcom/fluentui-editable-grid",
-  "version": "1.11.17",
+  "version": "1.11.18",
   "license": "MIT",
   "description": "Wrapper over the existing DetailsList that makes in-place editability work like a dream(among many other new features)",
   "main": "dist/index.js",
@@ -49,9 +49,8 @@
   "devDependencies": {
     "immer": ">=9.0.6",
     "just-scripts": "^0.27.0",
-    "just-stack-react": "^1.0.0",
     "marked": ">=4.0.10",
-    "nth-check": ">=2.0.1",
+    "nth-check": ">=2.1.1",
     "tar": ">=6.1.9"
   },
   "scripts": {
